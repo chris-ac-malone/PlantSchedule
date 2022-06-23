@@ -1,21 +1,20 @@
-export const plantData = [
+export const plantData =
     {
         "plants": {
             "chinesemoneytree": {
-                "common-name": "Chinese Money Tree",
-                "scientific-name": "Pilea peperomioides",
-                "image": "plants/chinesemoneytree.jpg"
+                "commonName": "Chinese Money Tree",
+                "scientificName": "Pilea peperomioides",
+                "image": "assets/plants/chinesemoneytree.jpg"
             },
             "marblequeenpothos": {
-                "common-name": "Marble Queen Pothos",
-                "scientific-name": "Epipremnum aureum cultivar",
-                "image": "plants/marblequeenpothos.jpg"
+                "commonName": "Marble Queen Pothos",
+                "scientificName": "Epipremnum aureum cultivar",
+                "image": "assets/plants/marblequeenpothos.jpg"
             },
             "prayerplant": {
-                "common-name": "Prayer Plant",
-                "scientific-name": "Maranta leuconeura",
-                "image": "plants/prayerplant"
+                "commonName": "Prayer Plant",
+                "scientificName": "Maranta leuconeura",
+                "image": "assets/plants/prayerplant.jpg"
             }
         }
     }
-]
