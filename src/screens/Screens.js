@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity, Button, StatusBar } from 'react-native';
 import { PlantSummary } from '../components/PlantSummary';
+import { plantData } from '../data/plants';
+
+var plants = [];
+  
+    plantData.forEach(plant => {
+      console.log(plant)
+      plants.push(
+        <PlantSummary image={plant.image} commonName={plant.commonName} scientificName={plant.scientificName}  />
+      )
+    })
 
 export const HomeScreen = ({ navigation }) => {
     return (
@@ -16,8 +26,26 @@ export const HomeScreen = ({ navigation }) => {
 }
 export const AllPlants = ({ navigation, route }) => {
     return (
-        <View>
-            <Text>ALLPLANTS</Text>
+        <View style={styles.allplants}>
+        <StatusBar style="auto" />
+          <View />
+            <ScrollView style={styles.scrollview}>
+              { plants }
+            </ScrollView>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    allplants: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    scrollview: {
+      flex: 1,
+      width: '100%'
+    }
+  });
+  
