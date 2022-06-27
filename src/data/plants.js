@@ -22,6 +22,6 @@ export const plantData =
         id:"motherofmillions",
         commonName: "Mother of Millions",
         scientificName: "Kalanchoe daigremontiana",
-        image: require('../../assets/plants/prayerplant.jpg')
+        image: require('../../assets/plants/motherofmillions.jpg')
     }
     ]
