@@ -6,17 +6,19 @@ import * as RNFS from 'react-native-fs';
 export class PlantSummary extends Component<{ commonName?: String, scientificName?: String, plantImage?: String }> {
     render() {
         return (
-            <View style={this.styles.container}>
-                <Image 
-                    source={require("../../assets/plants/chinesemoneytree.jpg")}
-                    style={{width: 100, height: 100, flex: 4, alignSelf: 'stretch'}}
-                />
-                <View style={this.styles.namesContainer}>
-                    <Text style={this.styles.names}>{this.props.commonName}</Text>
-                    <Text style={this.styles.names}>{this.props.scientificName}</Text>
+            <>
+                <View style={this.styles.container}>
+                    <Image 
+                        source={require("../../assets/plants/chinesemoneytree.jpg")}
+                        style={{width: 100, height: 100, flex: 3, alignSelf: 'stretch'}}
+                    />
+                    <View style={this.styles.namesContainer}>
+                        <Text style={this.styles.commonName}>{this.props.commonName}</Text>
+                        <Text style={this.styles.scientificName}>{this.props.scientificName}</Text>
+                    </View>
                 </View>
-                <View style={{ borderBottomColor: 'black', borderBottomWidth: 5 }}/>
-            </View>
+                <View style={{width: '100%', borderBottomColor: 'rgba(50,50,50,.2)', borderBottomWidth: 1, paddingTop: 20}}/>
+            </>
         )
     }
     
@@ -25,16 +27,24 @@ export class PlantSummary extends Component<{ commonName?: String, scientificNam
         container: {
           flexDirection: 'row',
           flex: 0,
-          backgroundColor: '#ddd',
           justifyContent: 'center',
           height: 100,
-          padding: (1)
+          paddingTop: 10
         },
         namesContainer: {
+            paddingLeft: 7,
             flex: 6,
             flexDirection: 'column',
         },
-        names: {
+        commonName: {
+            paddingTop: 2,
+            fontSize: 16,
+        },
+        scientificName: {
+            fontSize: 16,
+            color: 'rgba(80,80,80,.8)',
+            fontStyle: 'italic',
+            fontWeight: "200"
         }
       });
 
