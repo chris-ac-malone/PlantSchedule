@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { PlantSummary } from './src/components/PlantSummary';
 import { plantData } from './src/data/plants';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function App() {
   var plants = [];
@@ -14,13 +16,15 @@ export default function App() {
   })
   
   return (
-    <View style={styles.container}>
-    <StatusBar style="auto" />
-      <View />
-        <ScrollView style={styles.scrollview}>
-          { plants }
-        </ScrollView>
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+      <StatusBar style="auto" />
+        <View />
+          <ScrollView style={styles.scrollview}>
+            { plants }
+          </ScrollView>
+      </View>
+    </NavigationContainer>
   );
 }
 
