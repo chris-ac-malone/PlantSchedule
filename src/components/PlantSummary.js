@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import * as RNFS from 'react-native-fs';
 
 
-export class PlantSummary extends Component<{ commonName?: String, scientificName?: String, plantImage?: String }> {
+export class PlantSummary extends Component {
+    contsructor(props) {
+    }
     render() {
         return (
             <>
                 <View style={this.styles.container}>
                     <Image 
-                        source={require("../../assets/plants/chinesemoneytree.jpg")}
+                        source={this.props.image}
                         style={{width: 100, height: 100, flex: 3, alignSelf: 'stretch'}}
                     />
                     <View style={this.styles.namesContainer}>
