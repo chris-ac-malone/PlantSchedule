@@ -4,21 +4,21 @@ import { PlantSummary } from '../components/PlantSummary';
 import { plantData } from '../data/plants';
 
 var plants = [];
-  
-    plantData.forEach(plant => {
-      console.log(plant)
-      plants.push(
-        <PlantSummary image={plant.image} commonName={plant.commonName} scientificName={plant.scientificName}  />
-      )
-    })
+plantData.forEach(plant => {
+  console.log(plant)
+  plants.push(
+    <PlantSummary image={plant.image} commonName={plant.commonName} scientificName={plant.scientificName} />
+  )
+})
 
 export const HomeScreen = ({ navigation }) => {
     return (
-        <View>
+        <View style={styles.homescreen}>
             <Text>HomeScreen</Text>
             <Button
+                style={ styles.addplantsbutton }
                 onPress={() => navigation.navigate('All Plants')}
-                title="All Plants"
+                title="Add a Plant"
                 color="black"
             />
         </View>
@@ -46,6 +46,12 @@ const styles = StyleSheet.create({
     scrollview: {
       flex: 1,
       width: '100%'
+    },
+    homescreen: {
+        flex: 1,
+    },
+    addplantsbutton: {
+        alignSelf: 'flex-end'
     }
   });
   
