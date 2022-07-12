@@ -1,47 +1,39 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity, Button, StatusBar } from 'react-native';
 import { PlantSummary } from '../components/PlantSummary';
-import { plantData } from '../data/plants';
-const plantData2 = require('../data/plants2.json'); 
+const PlantData = require('../data/plants.json'); 
 import { imageNames } from '../data/images';
 
-for(var i in plantData2) {
-  console.log(plantData2[i].commonName);
+for(var i in PlantData) {
+  console.log(PlantData[i].commonName);
 }
 
 var plants = [];
 
-for(var i in plantData2) {
+for(var i in PlantData) {
   plants.push(
-    <PlantSummary image={plantData2[i].image} commonName={plantData2[i].commonName} scientificName={plantData2[i].scientificName} />
+    <PlantSummary image={PlantData[i].image} commonName={PlantData[i].commonName} scientificName={PlantData[i].scientificName} />
   )
 }
-
-/*
-plantData.forEach(plant => {
-  plants.push(
-    <PlantSummary image={plant.image} commonName={plant.commonName} scientificName={plant.scientificName} />
-  )
-})
-*/
 
 export const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.homescreen}>
-            <Text>HomeScreen</Text>
-            <Button
+          <View style={styles.header}><Text style={styles.headerText}>Your Plants</Text></View>
+            <View style={styles.homepageContent}></View>
+            <TouchableOpacity
                 style={ styles.addplantsbutton }
                 onPress={() => navigation.navigate('All Plants')}
                 title="Add a Plant"
                 color="black"
-            />
+            ><Text style={ styles.addplantsbuttontext }>Add a Plant</Text></TouchableOpacity>
         </View>
     )
 }
 export const AllPlants = ({ navigation, route }) => {
     return (
       <View style={styles.allplants}>
-      <StatusBar style="auto" />
+        <View style={styles.header}><Text style={styles.headerText}>Select a Plant</Text></View>
         <View />
           <ScrollView style={styles.scrollview}>
             { plants }
@@ -54,8 +46,8 @@ export const PlantInfo = ({ navigation, route }) => {
   return (
     <ScrollView>
     <View style={styles.namesContainer}>
-      <Text style={styles.commonName}>{plantData2[plant].commonName}</Text>
-      <Text style={styles.scientificName}>{plantData2[plant].scientificName}</Text>
+      <Text style={styles.commonName}>{PlantData[plant].commonName}</Text>
+      <Text style={styles.scientificName}>{PlantData[plant].scientificName}</Text>
     </View>
       <View style={styles.plantinfo}>
         <Image 
@@ -68,6 +60,17 @@ export const PlantInfo = ({ navigation, route }) => {
 }
 
 const styles = StyleSheet.create({
+    header: {
+      backgroundColor: "#339933",
+      width: "100%"
+    },
+    headerText: {
+      textAlign: "center",
+      padding: 10,
+      color: "white",
+      fontWeight: "bold",
+      fontSize: 20,
+    },
     allplants: {
       flex: 1,
       backgroundColor: '#fff',
@@ -89,12 +92,24 @@ const styles = StyleSheet.create({
     },
     homescreen: {
         flex: 1,
+        display: "flex",
     },
-    plantinfo: {
+    homepageContent: {
       flex: 1
     },
+    plantinfo: {
+      flex: 2
+    },
     addplantsbutton: {
-        alignSelf: 'flex-end'
+      paddingTop: 20,
+      paddingBottom: 25,
+      backgroundColor: "#222",
+    },
+    addplantsbuttontext: {
+      color: "white",
+      textAlign: "center",
+      fontWeight: "bold",
+      fontSize: 24,
     },
     namesContainer: {
       paddingLeft: 7,
