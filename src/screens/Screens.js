@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity, Button, St
 import { PlantSummary } from '../components/PlantSummary';
 import { plantData } from '../data/plants';
 const plantData2 = require('../data/plants2.json'); 
+import { imageNames } from '../data/images';
 
 for(var i in plantData2) {
   console.log(plantData2[i].commonName);
@@ -49,9 +50,14 @@ export const AllPlants = ({ navigation, route }) => {
     )
 }
 export const PlantInfo = ({ navigation, route }) => {
+  const { plant } = route.params;
   return (
       <View style={styles.plantinfo}>
-        <Text>Plant Info Screen</Text>
+        <Image 
+          source={imageNames[plant]}
+        />
+        <Text>Common Name: {plantData2[plant].commonName}</Text>
+        <Text>Scientific Name: {plantData2[plant].scientificName}</Text>
       </View>
   )
 }

@@ -9,7 +9,9 @@ export const PlantSummary = ( props ) => {
     const navigation = useNavigation();
         return (
             <>
-                <TouchableOpacity onPress={() => navigation.navigate('Plant Info')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Plant Info', {
+                    plant: props.image
+                })}>
                     <View style={styles.container}>
                         <Image 
                             source={imageNames[props.image]}
