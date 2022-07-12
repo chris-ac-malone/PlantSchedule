@@ -1,30 +1,32 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/native-stack';
 
-
-export class PlantSummary extends Component {
-    contsructor(props) {
-    }
-    render() {
+export const PlantSummary = ( props ) => {
+    const navigation = useNavigation();
         return (
             <>
-                <View style={this.styles.container}>
-                    <Image 
-                        source={this.props.image}
-                        style={{width: 100, height: 100, flex: 3, alignSelf: 'stretch'}}
-                    />
-                    <View style={this.styles.namesContainer}>
-                        <Text style={this.styles.commonName}>{this.props.commonName}</Text>
-                        <Text style={this.styles.scientificName}>{this.props.scientificName}</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Plant Info')}>
+                    <View style={styles.container}>
+                        <Image 
+                            source={props.image}
+                            style={{width: 100, height: 100, flex: 3, alignSelf: 'stretch'}}
+                        />
+                        <View style={styles.namesContainer}>
+                            <Text style={styles.commonName}>{props.commonName}</Text>
+                            <Text style={styles.scientificName}>{props.scientificName}</Text>
+                        </View>
                     </View>
-                </View>
-                <View style={{width: '100%', borderBottomColor: 'rgba(50,50,50,.2)', borderBottomWidth: 1, paddingTop: 20}}/>
+                    <View style={{width: '100%', borderBottomColor: 'rgba(50,50,50,.2)', borderBottomWidth: 1, paddingTop: 20}}/>
+                </TouchableOpacity>
             </>
         )
     }
     
 
-    styles = StyleSheet.create({
+    const styles = StyleSheet.create({
         container: {
           flexDirection: 'row',
           flex: 0,
@@ -48,6 +50,3 @@ export class PlantSummary extends Component {
             fontWeight: "200"
         }
       });
-
-  };
-

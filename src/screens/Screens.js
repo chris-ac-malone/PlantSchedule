@@ -1,3 +1,4 @@
+import { TabActions } from '@react-navigation/native';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity, Button, StatusBar } from 'react-native';
 import { PlantSummary } from '../components/PlantSummary';
@@ -5,7 +6,7 @@ import { plantData } from '../data/plants';
 
 var plants = [];
 plantData.forEach(plant => {
-  console.log(plant)
+  console.log(plant.commonName)
   plants.push(
     <PlantSummary image={plant.image} commonName={plant.commonName} scientificName={plant.scientificName} />
   )
@@ -26,18 +27,31 @@ export const HomeScreen = ({ navigation }) => {
 }
 export const AllPlants = ({ navigation, route }) => {
     return (
-        <View style={styles.allplants}>
-        <StatusBar style="auto" />
-          <View />
-            <ScrollView style={styles.scrollview}>
-              { plants }
-            </ScrollView>
-        </View>
+      <View style={styles.allplants}>
+      <StatusBar style="auto" />
+        <View />
+          <ScrollView style={styles.scrollview}>
+            { plants }
+          </ScrollView>
+      </View>
     )
+}
+export const PlantInfo = ({ navigation, route }) => {
+  return (
+      <View style={styles.plantinfo}>
+        <Text>Plant Info Screen</Text>
+      </View>
+  )
 }
 
 const styles = StyleSheet.create({
     allplants: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    plantinfo: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
