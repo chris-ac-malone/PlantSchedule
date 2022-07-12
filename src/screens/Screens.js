@@ -52,13 +52,18 @@ export const AllPlants = ({ navigation, route }) => {
 export const PlantInfo = ({ navigation, route }) => {
   const { plant } = route.params;
   return (
+    <ScrollView>
+    <View style={styles.namesContainer}>
+      <Text style={styles.commonName}>{plantData2[plant].commonName}</Text>
+      <Text style={styles.scientificName}>{plantData2[plant].scientificName}</Text>
+    </View>
       <View style={styles.plantinfo}>
         <Image 
+          style={styles.plantinfoimage}
           source={imageNames[plant]}
         />
-        <Text>Common Name: {plantData2[plant].commonName}</Text>
-        <Text>Scientific Name: {plantData2[plant].scientificName}</Text>
       </View>
+    </ScrollView>
   )
 }
 
@@ -73,7 +78,10 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'center'
+    },
+    plantinfoimage: {
+      width: "100%"
     },
     scrollview: {
       flex: 1,
@@ -82,8 +90,32 @@ const styles = StyleSheet.create({
     homescreen: {
         flex: 1,
     },
+    plantinfo: {
+      flex: 1
+    },
     addplantsbutton: {
         alignSelf: 'flex-end'
-    }
+    },
+    namesContainer: {
+      paddingLeft: 7,
+      paddingTop: 4,
+      paddingBottom: 10,
+      flex: 6,
+      flexDirection: 'column',
+      backgroundColor: '#222',
+  },
+  commonName: {
+      paddingTop: 2,
+      fontSize: 20,
+      color: '#eee',
+  },
+  scientificName: {
+    paddingLeft: 10,
+    fontSize: 19,
+    color: 'rgba(80,80,80,.8)',
+    fontStyle: 'italic',
+    fontWeight: "200",
+    color: '#fff',
+  }
   });
   
