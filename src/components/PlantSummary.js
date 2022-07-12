@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { imageNames } from '../data/images';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/native-stack';
 
@@ -11,7 +12,7 @@ export const PlantSummary = ( props ) => {
                 <TouchableOpacity onPress={() => navigation.navigate('Plant Info')}>
                     <View style={styles.container}>
                         <Image 
-                            source={props.image}
+                            source={imageNames[props.image]}
                             style={{width: 100, height: 100, flex: 3, alignSelf: 'stretch'}}
                         />
                         <View style={styles.namesContainer}>

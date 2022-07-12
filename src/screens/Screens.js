@@ -1,16 +1,28 @@
-import { TabActions } from '@react-navigation/native';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity, Button, StatusBar } from 'react-native';
 import { PlantSummary } from '../components/PlantSummary';
 import { plantData } from '../data/plants';
+const plantData2 = require('../data/plants2.json'); 
+
+for(var i in plantData2) {
+  console.log(plantData2[i].commonName);
+}
 
 var plants = [];
+
+for(var i in plantData2) {
+  plants.push(
+    <PlantSummary image={plantData2[i].image} commonName={plantData2[i].commonName} scientificName={plantData2[i].scientificName} />
+  )
+}
+
+/*
 plantData.forEach(plant => {
-  console.log(plant.commonName)
   plants.push(
     <PlantSummary image={plant.image} commonName={plant.commonName} scientificName={plant.scientificName} />
   )
 })
+*/
 
 export const HomeScreen = ({ navigation }) => {
     return (
