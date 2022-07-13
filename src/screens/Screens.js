@@ -19,6 +19,7 @@ for(var i in PlantData) {
 export const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.homescreen}>
+          <StatusBar backgroundColor='#339933' />
           <View style={styles.header}><Text style={styles.headerText}>Your Plants</Text></View>
             <View style={styles.homepageContent}></View>
             <TouchableOpacity
@@ -61,7 +62,7 @@ export const PlantInfo = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
     header: {
-      backgroundColor: "#339933",
+      backgroundColor: "#228822",
       width: "100%"
     },
     headerText: {
