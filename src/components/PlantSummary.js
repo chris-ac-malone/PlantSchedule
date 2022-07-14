@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { imageNames } from '../data/images';
-import { NavigationContainer, StackActions } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/native-stack';
 
 export const PlantSummary = ( props ) => {
     const navigation = useNavigation();

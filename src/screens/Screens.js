@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity, Button, StatusBar } from 'react-native';
 import { PlantSummary } from '../components/PlantSummary';
 const PlantData = require('../data/plants.json'); 
+const UserPlantData = require('../data/userPlants.json'); 
 import { imageNames } from '../data/images';
+
 
 for(var i in PlantData) {
   console.log(PlantData[i].commonName);
@@ -12,7 +14,7 @@ var plants = [];
 
 for(var i in PlantData) {
   plants.push(
-    <PlantSummary image={PlantData[i].image} commonName={PlantData[i].commonName} scientificName={PlantData[i].scientificName} />
+    <PlantSummary key={i} image={PlantData[i].image} commonName={PlantData[i].commonName} scientificName={PlantData[i].scientificName} />
   )
 }
 
@@ -22,6 +24,13 @@ export const HomeScreen = ({ navigation }) => {
           <StatusBar backgroundColor='#339933' />
           <View style={styles.header}><Text style={styles.headerText}>Your Plants</Text></View>
             <View style={styles.homepageContent}></View>
+            <Button title={"Test"} onPress={function(){
+
+              
+              console.log("test");
+
+
+            }}></Button>
             <TouchableOpacity
                 style={ styles.addplantsbutton }
                 onPress={() => navigation.navigate('All Plants')}

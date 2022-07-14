@@ -1,0 +1,22 @@
+{
+    "chinesemoneytree":{
+        "commonName": "Chinese Money Tree",
+        "scientificName": "Pilea peperomioides",
+        "image": "chinesemoneytree"
+    },
+    "marblequeenpothos": {
+        "commonName": "Marble Queen Pothos",
+        "scientificName": "Epipremnum aureum cultivar",
+        "image": "marblequeenpothos"
+    },
+    "prayerplant": {
+        "commonName": "Prayer Plant",
+        "scientificName": "Maranta leuconeura",
+        "image": "prayerplant"
+    },
+    "motherofmillions": {
+        "commonName": "Mother of Millions",
+        "scientificName": "Kalanchoe daigremontiana",
+        "image": "motherofmillions"
+    }
+}
